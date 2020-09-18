@@ -1,0 +1,31 @@
+img {
+  width: 180px;
+  height: 180px;
+}
+.flex {
+  display: flex;
+  .add {
+    cursor: pointer;
+    float: right;
+    margin-top: 6px;
+    margin-left: 10px;
+  }
+  .remove {
+    cursor: pointer;
+    float: left;
+    margin-top: 6px;
+    margin-right: 10px;
+  }
+}
+
+.removeX {
+  color: black;
+  font-size: 25px;
+  font-weight: bold;
+  margin-left: 100px;
+  cursor: pointer;
+  &:hover {
+    color: red;
+    font-weight: bolder;
+  }
+}
