@@ -6,6 +6,7 @@ import { Route, Link, Switch, Router } from "react-router-dom";
 import Header from "./components/header/header.component";
 import ShoppingCart from "./pages/shopping-cart-page/shopping-cart-page.component";
 import addEditProduct from "./pages/add-product-page/add-product-page.component";
+import EditProduct from "./pages/edit-product-page/edit-product-page.component";
 
 class App extends React.Component {
   constructor() {
@@ -19,6 +20,7 @@ class App extends React.Component {
           <Route exact path="/" component={HomePage}></Route>
           <Route exact path="/shoping-cart" component={ShoppingCart}></Route>
           <Route exact path="/add" component={addEditProduct}></Route>
+          <Route exact oath="/edit" component={EditProduct}></Route>
         </Switch>
       </div>
     );

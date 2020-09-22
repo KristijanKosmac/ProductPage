@@ -14,7 +14,6 @@ class HomePage extends React.Component {
           title: "Tel1",
           imageUrl: "https://i.ibb.co/KxCrzQT/1.jpg",
           id: 1,
-          linkUrl: "shop/hats",
           price: 150,
           quantity: 0,
         },
@@ -22,7 +21,6 @@ class HomePage extends React.Component {
           title: "Tel2",
           imageUrl: "https://i.ibb.co/x29RBL9/5103-Xi7y-Qg-L-SX466.jpg",
           id: 2,
-          linkUrl: "shop/jackets",
           price: 200,
           quantity: 0,
         },
@@ -31,7 +29,6 @@ class HomePage extends React.Component {
           imageUrl:
             "https://i.ibb.co/z76Jmzj/apple-iphone-11-purple-450x350.webp",
           id: 3,
-          linkUrl: "shop/sneakers",
           price: 350,
           quantity: 0,
         },
@@ -39,7 +36,6 @@ class HomePage extends React.Component {
           title: "Tel4",
           imageUrl: "https://i.ibb.co/MNQJ8Cp/images.jpg",
           id: 4,
-          linkUrl: "shop/womens",
           price: 300,
           quantity: 0,
         },
@@ -48,7 +44,6 @@ class HomePage extends React.Component {
           imageUrl:
             "https://i.ibb.co/y4gP7Zm/S10-Lite-720x752-PCD-PNG-text-off.webp",
           id: 5,
-          linkUrl: "shop/mens",
           price: 165,
           quantity: 0,
         },
@@ -57,7 +52,6 @@ class HomePage extends React.Component {
           imageUrl:
             "https://i.ibb.co/kJzKwJx/Samsung-Galaxy-S10-5-G-SD855-555x555.jpg",
           id: 6,
-          linkUrl: "shop/mens",
           price: 255,
           quantity: 0,
         },
@@ -66,7 +60,6 @@ class HomePage extends React.Component {
           imageUrl:
             "https://i.ibb.co/W5b191N/zte-axon-7-128gb-with-4gb-ram-6442.jpg",
           id: 7,
-          linkUrl: "shop/mens",
           price: 500,
           quantity: 0,
         },
@@ -74,7 +67,6 @@ class HomePage extends React.Component {
           title: "Tel8",
           imageUrl: "https://i.ibb.co/KxCrzQT/1.jpg",
           id: 8,
-          linkUrl: "shop/hats",
           price: 650,
           quantity: 0,
         },
@@ -105,7 +97,7 @@ class HomePage extends React.Component {
   render() {
     return (
       <div className="container">
-        <ProductDirectory products={this.state.products}></ProductDirectory>
+        <ProductDirectory></ProductDirectory>
       </div>
     );
   }
