@@ -5,7 +5,7 @@ const INITAL_STATE = {
   cartItems: [],
 };
 
-const cartReducer = (state = INITAL_STATE, action) => {
+const cartReducer = (state = INITAL_STATE, action: any) => {
   switch (action.type) {
     case CartActionTypes.ADD_ITEM:
       return {
@@ -21,7 +21,7 @@ const cartReducer = (state = INITAL_STATE, action) => {
       return {
         ...state,
         cartItems: state.cartItems.filter(
-          (cartitem) => cartitem.id !== action.payload.id
+          (cartitem: any) => cartitem.id !== action.payload.id
         ),
       };
     default:

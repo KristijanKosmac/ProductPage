@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import "../../../node_modules/bootstrap/scss/bootstrap.scss";
 
-const Header = ({ itemCount }) => (
+const Header = ({ itemCount }: any) => (
   <div className="flex-container ">
     <div>
       <Link to="/add">
@@ -25,9 +25,10 @@ const Header = ({ itemCount }) => (
   </div>
 );
 
-const mapStateToProps = ({ cart: { cartItems } }) => ({
+const mapStateToProps = ({ cart: { cartItems } }: any) => ({
   itemCount: cartItems.reduce(
-    (accumulatedQuantity, cartItem) => accumulatedQuantity + cartItem.quantity,
+    (accumulatedQuantity: number, cartItem: any) =>
+      accumulatedQuantity + cartItem.quantity,
     0
   ),
 });

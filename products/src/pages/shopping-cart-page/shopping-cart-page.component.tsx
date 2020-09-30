@@ -5,10 +5,6 @@ import "./shopping-cart-page.style.scss";
 import ShoppingPreview from "../../components/shopping-cart-preview/shopping-cart-preview.component";
 
 class ShoppingCart extends React.Component {
-  constructor() {
-    super();
-  }
-
   render() {
     return (
       <div className="container">

@@ -12,7 +12,18 @@ import {
   timestamp,
 } from "../../firebase/config";
 
-const ProductItem = ({ item, addItem }) => {
+interface ItemProps {
+  item: {
+    title: string;
+    price: number;
+    imageUrl: string;
+    id: string;
+    quantity: number;
+  };
+  addItem: any;
+}
+
+const ProductItem = ({ item, addItem }: ItemProps) => {
   const { title, price, imageUrl, id } = item;
 
   const Delete = () => {
@@ -53,7 +64,7 @@ const ProductItem = ({ item, addItem }) => {
             </button>
           </li>
           <li>
-            <button class="btn btn-sm">
+            <button className="btn btn-sm">
               <Link
                 to={{
                   pathname: "/edit",
@@ -80,8 +91,8 @@ const ProductItem = ({ item, addItem }) => {
   );
 };
 
-const mapDispatchtoProps = (dispatch) => ({
-  addItem: (item) => dispatch(addItem(item)),
+const mapDispatchtoProps = (dispatch: any) => ({
+  addItem: (item: any) => dispatch(addItem(item)),
 });
 
 export default connect(null, mapDispatchtoProps)(ProductItem);

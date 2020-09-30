@@ -5,9 +5,9 @@ import {
   timestamp,
 } from "../firebase/config";
 
-const useStorage = (file, price, title, id) => {
+const useStorage = (file: any, price: number, title: string, id: any) => {
   const [error, setError] = useState(null);
-  const [url, setUrl] = useState(null);
+  const [url, setUrl] = useState("");
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
@@ -21,7 +21,7 @@ const useStorage = (file, price, title, id) => {
         let percentage = (snap.bytesTransferred / snap.totalBytes) * 100;
         setProgress(percentage);
       },
-      (err) => {
+      (err: any) => {
         setError(err);
       },
       async () => {
@@ -30,12 +30,12 @@ const useStorage = (file, price, title, id) => {
             if (doc.id === id) {
               collectionRef.doc(id).delete();
               flag = true;
-              tmp = doc.url;
+              // tmp = doc.url;
             }
           });
         });
 
-        var url = "";
+        var url: string = "";
         if (flag) {
           url = tmp;
         } else {

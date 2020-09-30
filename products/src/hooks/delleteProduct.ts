@@ -5,7 +5,7 @@ import {
   timestamp,
 } from "../firebase/config";
 
-const Delete = (id) => {
+const Delete = (id: string) => {
   useEffect(() => {
     const collectionRef = projectFirestore.collection("products");
 

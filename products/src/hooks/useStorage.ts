@@ -5,7 +5,7 @@ import {
   timestamp,
 } from "../firebase/config";
 
-const useStorage = (file, price, title, id) => {
+const useStorage = (file: any, price: number, title: string, id: any) => {
   const [error, setError] = useState(null);
   const [url, setUrl] = useState(null);
   const [progress, setProgress] = useState(0);
@@ -20,7 +20,7 @@ const useStorage = (file, price, title, id) => {
         let percentage = (snap.bytesTransferred / snap.totalBytes) * 100;
         setProgress(percentage);
       },
-      (err) => {
+      (err: any) => {
         setError(err);
       },
       async () => {

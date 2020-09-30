@@ -1,17 +1,17 @@
 import React from "react";
 import "./../../../node_modules/bootstrap/scss/bootstrap.scss";
 import "./product-directory.styles.scss";
-import ProductItem from "./../product-item/product-item.component";
+import ProductItem from "../product-item/product-item.component";
 import useFirestore from "../../hooks/useFirestore";
 
 const ProductDirectory = () => {
-  const { docs } = useFirestore("products");
+  const { docs }: any = useFirestore("products");
   console.log(docs);
 
   return (
     <div className="row">
       {docs &&
-        docs.map((doc) => (
+        docs.map((doc: any) => (
           <ProductItem
             key={doc.id}
             item={{

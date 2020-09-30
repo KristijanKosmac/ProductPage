@@ -4,52 +4,68 @@ import "./add-product-page.styles.scss";
 import Form from "../../components/upload-form/upload.component";
 import { timestamp } from "../../firebase/config";
 
-class addEditProduct extends React.Component {
-  constructor() {
-    super();
+interface IProps {
+  history: any;
+}
+
+interface IState {
+  title: string;
+  price: number;
+  id: any;
+}
+
+class addEditProduct extends React.Component<IProps, IState> {
+  constructor(props: IProps) {
+    super(props);
 
     this.state = {
-      title: null,
+      title: "",
       price: 0,
+      id: null,
     };
   }
 
-  handleChangePrice(event) {
+  handleChangePrice(event: any) {
     this.setState({
       price: event.target.value,
     });
   }
 
-  handleChangeTitle(event) {
+  handleChangeTitle(event: any) {
     this.setState({
       title: event.target.value,
     });
   }
   render() {
     return (
-      <form class="conteiner">
-        <div class="form-group">
-          <label for="exampleInputEmail1">Title</label>
+      <form className="conteiner">
+        <div className="form-group">
+          <label>Title</label>
           <input
             type="text"
-            class="form-control"
+            className="form-control"
             placeholder="Title"
             onChange={(event) => this.handleChangeTitle(event)}
           />
         </div>
-        <div class="form-group">
-          <label for="exampleInputPassword1">Price</label>
+        <div className="form-group">
+          <label>Price</label>
           <input
             onChange={(event) => this.handleChangePrice(event)}
-            type="text"
-            class="form-control"
+            type="number"
+            className="form-control"
             id="exampleInputPassword1"
             placeholder="price"
           />
         </div>
 
-        <div class="form-group">
-          <Form title={this.state.title} price={this.state.price}></Form>
+        <div className="form-group">
+          <Form
+            title={this.state.title}
+            price={this.state.price}
+            id={this.state.id}
+            history={this.props.history}
+          ></Form>
         </div>
       </form>
     );

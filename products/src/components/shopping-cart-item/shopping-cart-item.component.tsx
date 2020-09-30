@@ -8,13 +8,34 @@ import {
   removeItem,
 } from "../../redux/cart/cart.actions";
 
-const ShoppingItem = ({ cartItem, addItem, decreaseItem, removeItem }) => {
+interface CartItem {
+  id: string;
+  title: string;
+  price: number;
+  imageUrl: string;
+  handleChange: any;
+  quantity: number;
+}
+
+interface ShoppingItemInterface {
+  cartItem: CartItem;
+  addItem: any;
+  decreaseItem: any;
+  removeItem: any;
+}
+
+const ShoppingItem = ({
+  cartItem,
+  addItem,
+  decreaseItem,
+  removeItem,
+}: ShoppingItemInterface) => {
   const { id, title, price, imageUrl, handleChange } = cartItem;
   return (
     <div className="panel-body" key={id}>
       <div className="row">
         <div className="col-xs-2">
-          <img class="img-responsive" src={imageUrl}></img>
+          <img className="img-responsive" src={imageUrl}></img>
         </div>
         <div className="col-xs-4 ml-5 mr-5 pl-5 pr-5">
           <h4 className="product-name">
@@ -29,7 +50,7 @@ const ShoppingItem = ({ cartItem, addItem, decreaseItem, removeItem }) => {
             <h6>
               <strong>
                 ${price}
-                <span class="removeX" onClick={() => removeItem(cartItem)}>
+                <span className="removeX" onClick={() => removeItem(cartItem)}>
                   {" "}
                   x
                 </span>
@@ -48,8 +69,8 @@ const ShoppingItem = ({ cartItem, addItem, decreaseItem, removeItem }) => {
             </label>
           </div>
           <div className="col-xs-2">
-            <button type="button" class="btn btn-link btn-xs">
-              <span class="glyphicon glyphicon-trash"> </span>
+            <button type="button" className="btn btn-link btn-xs">
+              <span className="glyphicon glyphicon-trash"> </span>
             </button>
           </div>
         </div>
@@ -59,10 +80,10 @@ const ShoppingItem = ({ cartItem, addItem, decreaseItem, removeItem }) => {
   );
 };
 
-const mapDispatchToProps = (dispatch) => ({
-  addItem: (item) => dispatch(addItem(item)),
-  decreaseItem: (item) => dispatch(decreaseItem(item)),
-  removeItem: (item) => dispatch(removeItem(item)),
+const mapDispatchToProps = (dispatch: any) => ({
+  addItem: (item: any) => dispatch(addItem(item)),
+  decreaseItem: (item: any) => dispatch(decreaseItem(item)),
+  removeItem: (item: any) => dispatch(removeItem(item)),
 });
 
 export default connect(null, mapDispatchToProps)(ShoppingItem);

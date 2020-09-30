@@ -3,25 +3,38 @@ import "../../../node_modules/bootstrap/scss/bootstrap.scss";
 import "./edit-product-page.styles.scss";
 import Form from "../../components/upload-form/upload.component";
 
-class EditProduct extends React.Component {
-  constructor() {
-    super();
+interface IProps {
+  match: any;
+  location: any;
+  history: any;
+}
+
+interface IState {
+  title: string;
+  price: number;
+  id: any;
+  imageUrl: any;
+}
+
+class EditProduct extends React.Component<IProps, IState> {
+  constructor(props: IProps) {
+    super(props);
 
     this.state = {
-      title: null,
+      title: "",
       price: 0,
       id: null,
       imageUrl: null,
     };
   }
 
-  handleChangePrice(event) {
+  handleChangePrice(event: any) {
     this.setState({
       price: event.target.value,
     });
   }
 
-  handleChangeTitle(event) {
+  handleChangeTitle(event: any) {
     this.setState({
       title: event.target.value,
     });
@@ -37,35 +50,35 @@ class EditProduct extends React.Component {
   }
   render() {
     return (
-      <form class="conteiner">
-        <div class="form-group">
-          <label for="exampleInputEmail1">Title</label>
+      <form className="conteiner">
+        <div className="form-group">
+          <label>Title</label>
           <input
             value={this.state.title}
             type="text"
-            class="form-control"
+            className="form-control"
             placeholder="Title"
             onChange={(event) => this.handleChangeTitle(event)}
           />
         </div>
-        <div class="form-group">
-          <label for="exampleInputPassword1">Price</label>
+        <div className="form-group">
+          <label>Price</label>
           <input
             onChange={(event) => this.handleChangePrice(event)}
             value={this.state.price}
             type="text"
-            class="form-control"
+            className="form-control"
             id="exampleInputPassword1"
             placeholder="price"
           />
         </div>
 
-        <div class="form-group">
+        <div className="form-group">
           <Form
             title={this.state.title}
             price={this.state.price}
-            imageUrl={this.state.imageUrl}
             id={this.state.id}
+            history={this.props.history}
           ></Form>
         </div>
       </form>

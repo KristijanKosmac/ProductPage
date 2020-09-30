@@ -9,9 +9,6 @@ import addEditProduct from "./pages/add-product-page/add-product-page.component"
 import EditProduct from "./pages/edit-product-page/edit-product-page.component";
 
 class App extends React.Component {
-  constructor() {
-    super();
-  }
   render() {
     return (
       <div className="App">

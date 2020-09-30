@@ -3,7 +3,12 @@ import "../../../node_modules/bootstrap/scss/bootstrap.scss";
 import ShoppingItem from "../shopping-cart-item/shopping-cart-item.component";
 import { connect } from "react-redux";
 
-const ShoppingPreview = ({ cartItems, Total }) => (
+interface ShoppingInterface {
+  cartItems: any;
+  Total: number;
+}
+
+const ShoppingPreview = ({ cartItems, Total }: ShoppingInterface) => (
   // this.setState((state) => {
   //   const products = state.products.map((item, j) => {
   //     if (j === id - 1) {
@@ -46,7 +51,7 @@ const ShoppingPreview = ({ cartItems, Total }) => (
             </div>
           </div>
         </div>
-        {cartItems.map((cartItem) => (
+        {cartItems.map((cartItem: any) => (
           <ShoppingItem key={cartItem.Id} cartItem={cartItem}></ShoppingItem>
         ))}
 
@@ -70,9 +75,9 @@ const ShoppingPreview = ({ cartItems, Total }) => (
   </div>
 );
 
-const mapStateToProps = ({ cart: { cartItems } }) => ({
+const mapStateToProps = ({ cart: { cartItems } }: any) => ({
   Total: cartItems.reduce(
-    (accumulatedQuantity, cartItem) =>
+    (accumulatedQuantity: number, cartItem: any) =>
       accumulatedQuantity + cartItem.quantity * cartItem.price,
     0
   ),
